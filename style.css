@@ -1,0 +1,85 @@
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+body{
+    width:1440px;
+    margin:auto;
+}
+.choose_menu{
+    border:1px solid rgb(75, 7, 7);
+    border-radius: 10px;
+    background-color: #f3f5ce;
+    padding:30px;
+    margin-top: 50px;
+    padding:50px;
+    display: flex;
+    justify-content: space-around;
+}
+.fighter{
+    width:200px;
+    height:350px;
+    /* border:1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    cursor:pointer;
+}
+#robin{
+    background-color: #c7f0d2;
+}
+#merlin{
+    background-color: #c7ecf0;
+}
+#conan{
+    background-color: #f0cac7;
+}
+.name{
+    text-align: center;
+    margin-bottom: 20px;
+}
+#conan, #merlin, #robin{
+    /* border:1px solid yellow; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding:20px;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+}
+.img_container{
+    width:100%;
+    height:180px;
+    /* border:1px solid green; */
+}
+img{
+    width: 100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:10px;
+}
+.specifications{
+    margin-top: 20px;
+    display:flex;
+    flex-direction: column;
+}
+.spe{
+    display: flex;
+    justify-content: space-between;
+}
+#arena{
+    display: flex;
+    padding:20px;
+    width:100%;
+    height:600px;
+    /* border:1px solid red; */
+    margin-bottom:50px;
+    margin-top:50px;
+}
+#player_one, #player_two{
+    width:50%;
+    /* border:1px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
