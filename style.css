@@ -81,6 +81,7 @@ img{
     padding:20px;
     width:50%;
     height:600px;
+    /* border:1px solid green; */
 }
 #player_one, #player_two{
     width:100%;

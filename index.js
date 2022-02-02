@@ -116,6 +116,7 @@ function displayChoosenFighter(fighter, player){
 }
 function chooseCharacter (id,fighter,player){
     const arena = document.getElementById(id)
+    arena.innerHTML=""
     const playerContainer = document.createElement("div")
     const addId = `<div id="${player}"></div>`
     arena.appendChild(playerContainer)
@@ -124,8 +125,7 @@ function chooseCharacter (id,fighter,player){
     anyPlayer.innerHTML= displayChoosenFighter(fighter, player)
 }
 
-
-//PLAYER ONE CHOOSE CHARACTER
+//PLAYERS CHOOSE THEIR CHARACTER
 fighterConan.addEventListener("click", function(){
     if(playerOne.checked === true){
         chooseCharacter("arena_1", conan, "player_one")
