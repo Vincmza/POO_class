@@ -86,14 +86,19 @@ function displayFighters(conan,merlin,robin){
 //DISPLAY ALL CHARACTERS
 displayFighters(conan,merlin,robin)
 
+//CHECKBOX ALLOWING USER TO CONFIRM UPCOMING CHARACTER CHOICE
+const playerOne = document.getElementById("first_player_choose")
+const playerTwo = document.getElementById("second_player_choose")
+
 //FIGHTER CARD
 const fighterConan = document.getElementById("conan")
 const fighterMerlin = document.getElementById("merlin")
 const fighterRobin = document.getElementById("robin")
 
 //FUNCTIONS TO ALLOW USER TO CHOOSE A CHARACTER
-function fighterChoosen (fighter){
+function displayChoosenFighter(fighter, player){
     return `<div class="fighter">
+    <span>${player}</span>
     <div id="${fighter.id}">
         <span class="name">${fighter.name}</span>
         <div class="img_container">
@@ -109,32 +114,42 @@ function fighterChoosen (fighter){
     </div>
 </div>`
 }
-function chooseCharacter (id,fighter){
+function chooseCharacter (id,fighter,player){
     const arena = document.getElementById(id)
-    arena.innerHTML= fighterChoosen(fighter)
+    const playerContainer = document.createElement("div")
+    const addId = `<div id="${player}"></div>`
+    arena.appendChild(playerContainer)
+    playerContainer.insertAdjacentHTML("afterend", addId)
+    const anyPlayer = document.getElementById(`${player}`)
+    anyPlayer.innerHTML= displayChoosenFighter(fighter, player)
 }
+
 
 //PLAYER ONE CHOOSE CHARACTER
 fighterConan.addEventListener("click", function(){
-    chooseCharacter("player_one", conan)
+    if(playerOne.checked === true){
+        chooseCharacter("arena_1", conan, "player_one")
+    } else if(playerTwo.checked === true){
+        chooseCharacter("arena_2", conan, "player_two")
+    }
 })
 fighterMerlin.addEventListener("click", function(){
-    chooseCharacter("player_one", merlin)
+    if(playerOne.checked === true){
+        chooseCharacter("arena_1", merlin, "player_one")
+    }else if(playerTwo.checked === true){
+        chooseCharacter("arena_2", merlin, "player_two")
+    }
 })
 fighterRobin.addEventListener("click", function(){
-    chooseCharacter("player_one",robin)
+    if(playerOne.checked === true){
+        chooseCharacter("arena_1", robin, "player_one")
+    } else if(playerTwo.checked === true){
+        chooseCharacter("arena_2", robin, "player_two")
+    }
 })
 
-//PLAYER TWO CHOOSE CHARACTER
-fighterConan.addEventListener("click", function(){
-    chooseCharacter("player_two", conan)
-})
-fighterMerlin.addEventListener("click", function(){
-    chooseCharacter("player_two", merlin)
-})
-fighterRobin.addEventListener("click", function(){
-    chooseCharacter("player_two", robin)
-})
+
+
 
     
 

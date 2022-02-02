@@ -11,12 +11,26 @@
     <div class="choose_menu">
         <!--DISPLAYING ALL CHARACTERS-->
     </div>
-
-    <div id="arena">
-        <div id="player_one"></div>
-        <div id="player_two"></div>
+    <!--BUTTONS TO CHOOSE CHARACTER-->
+    <div class="choose_buttons">
+        <div class="choice">
+            <span>Appuyer sur le bouton et choisissez votre personnage</span>
+            <input type="radio" id="first_player_choose" name="fdp"/>
+            <label>Joueur 1</label>
+        </div>
+        <div class="choice">
+            <span>Appuyer sur le bouton et choisissez votre personnage</span>
+            <input type="radio" id="second_player_choose" name="fdp"/>
+            <label>Joueur 2</label>
+        </div>
     </div>
-
+    <!--PLAYER ARENA-->
+    <div class="arena_container">
+        <div id="arena_1">
+        </div>
+        <div id="arena_2">
+        </div>
+    </div>
     <script src="./index.js"></script>
 </body>
 </html>
