@@ -86,7 +86,7 @@ function displayFighters(conan,merlin,robin){
 //DISPLAY ALL CHARACTERS
 displayFighters(conan,merlin,robin)
 
-//CHECKBOX ALLOWING USER TO CONFIRM UPCOMING CHARACTER CHOICE
+//RADIO BUTTONS ALLOWING USER TO CONFIRM CHARACTER CHOICE
 const playerOne = document.getElementById("first_player_choose")
 const playerTwo = document.getElementById("second_player_choose")
 
@@ -95,10 +95,24 @@ const fighterConan = document.getElementById("conan")
 const fighterMerlin = document.getElementById("merlin")
 const fighterRobin = document.getElementById("robin")
 
+//STORE PLAYER AND CHARACTER 
+let choosenFighters = []
+function storePlayerAndFighter(whichPlayer, fighterId){
+    if(choosenFighters.length < 2){
+        choosenFighters.push({player:whichPlayer, character:fighterId})
+    }else if(choosenFighters.length === 2){
+        const index = choosenFighters.findIndex(elem => elem.player === whichPlayer)
+        choosenFighters[index].character = fighterId
+    }
+}
 //FUNCTIONS TO ALLOW USER TO CHOOSE A CHARACTER
 function displayChoosenFighter(fighter, player){
+    const whichOne = player === "player_one" ? "Joueur 1" : "Joueur 2"
+    const idPhysicalStrike = player === "player_one" ? "physical_strike_p1" : "physical_strike_p2"
+    const idMagicalStrike = player === "player_one" ? "magical_strike_p1" : "magical_strike_p2"
+    storePlayerAndFighter(whichOne,fighter.id)
     return `<div class="fighter">
-    <span>${player}</span>
+    <span id="which_player">${whichOne}</span>
     <div id="${fighter.id}">
         <span class="name">${fighter.name}</span>
         <div class="img_container">
@@ -112,23 +126,42 @@ function displayChoosenFighter(fighter, player){
             <div class="spe"><span>Health</span><span>${fighter.health}</span></div>
         </div>
     </div>
+    <div class="strike_buttons">
+        <input id=${idPhysicalStrike} class="ps_button" type="button" value="Attaque physique"/>
+        <input id=${idMagicalStrike} class="ms_button" type="button" value="Attaque magique"/>
+    </div>
 </div>`
 }
+
 function chooseCharacter (id,fighter,player){
+    //THE TARGET IS THE ID ALREADY SET IN HTML
     const arena = document.getElementById(id)
     arena.innerHTML=""
+    //I CREATE A DIV TAG
     const playerContainer = document.createElement("div")
+    //THAT DIV WILL CONTAIN AN ID
     const addId = `<div id="${player}"></div>`
+    //I SET THAT NEW DIV AS A CHILD OF ARENA
     arena.appendChild(playerContainer)
+    //I INSERT THE ID 
     playerContainer.insertAdjacentHTML("afterend", addId)
+    //I AIM AT THE ID OF THE NEW CHILD OF ARENA 
     const anyPlayer = document.getElementById(`${player}`)
+    //I CALL THE FUNCTION THAT SETS THE CHARACTER CODE BASE
     anyPlayer.innerHTML= displayChoosenFighter(fighter, player)
 }
+function startFight(){
 
+}
 //PLAYERS CHOOSE THEIR CHARACTER
 fighterConan.addEventListener("click", function(){
     if(playerOne.checked === true){
         chooseCharacter("arena_1", conan, "player_one")
+        const physicalHit = document.getElementById("physical_strike_p1")
+        physicalHit.addEventListener("click", function(){
+            console.log(choosenFighters);
+        })
+
     } else if(playerTwo.checked === true){
         chooseCharacter("arena_2", conan, "player_two")
     }
@@ -147,6 +180,8 @@ fighterRobin.addEventListener("click", function(){
         chooseCharacter("arena_2", robin, "player_two")
     }
 })
+
+//LISTEN STRIKE INPUT
 
 
 

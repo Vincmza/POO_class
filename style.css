@@ -17,13 +17,17 @@ body{
 }
 .fighter{
     width:200px;
-    height:350px;
     /* border:1px solid blue; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content:space-between;
     cursor:pointer;
+}
+#which_player{
+    /* border:1px solid red; */
+    padding:20px;
+    font-size: 1.3em;
 }
 #robin{
     background-color: #c7f0d2;
@@ -37,6 +41,7 @@ body{
 .name{
     text-align: center;
     margin-bottom: 20px;
+    font-size: 1.15em;
 }
 #conan, #merlin, #robin{
     /* border:1px solid yellow; */
@@ -46,7 +51,7 @@ body{
     padding:20px;
     box-shadow: 2px 2px 5px black;
     border-radius: 10px;
-}
+} 
 .img_container{
     width:100%;
     height:180px;
@@ -66,6 +71,8 @@ img{
 .spe{
     display: flex;
     justify-content: space-between;
+    font-size:1.15em;
+    margin-bottom:5px;
 }
 .arena_container{
     width:100%;
@@ -80,7 +87,7 @@ img{
     display: flex;
     padding:20px;
     width:50%;
-    height:600px;
+    height:800px;
     /* border:1px solid green; */
 }
 #player_one, #player_two{
@@ -117,8 +124,31 @@ img{
 }
 .choice > label {
     padding:10px;
-    background-color:rgb(221, 173, 140);
+    background-color:rgb(235, 202, 180);
     border-radius:5px;
     font-weight: bold;
+}
+.strike_buttons{
+    width:100%;
+    /* border:1px solid green; */
+    padding:20px 0px;;
+    display: flex;
+    flex-direction: column;
+}
+.ps_button, .ms_button{
+    padding:10px 15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow: 2px 2px 3px black;
+}
+.ps_button{
+    background-color: rgb(201, 30, 30);
+    color:white;
+}
+.ms_button{
+    background-color: rgb(30, 70, 201);
+    color:white;
+    margin-top: 20px;
 }
 
