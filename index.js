@@ -97,11 +97,13 @@ const fighterRobin = document.getElementById("robin")
 
 //STORE PLAYER AND CHARACTER 
 let choosenFighters = []
+
 function storePlayerAndFighter(whichPlayer, fighterId){
-    if(choosenFighters.length < 2){
+    const index = choosenFighters.findIndex(elem => elem.player === whichPlayer)
+    console.log(index)
+    if(index === -1){
         choosenFighters.push({player:whichPlayer, character:fighterId})
-    }else if(choosenFighters.length === 2){
-        const index = choosenFighters.findIndex(elem => elem.player === whichPlayer)
+    }else if(index !== -1){
         choosenFighters[index].character = fighterId
     }
 }
@@ -150,9 +152,7 @@ function chooseCharacter (id,fighter,player){
     //I CALL THE FUNCTION THAT SETS THE CHARACTER CODE BASE
     anyPlayer.innerHTML= displayChoosenFighter(fighter, player)
 }
-function startFight(){
 
-}
 //PLAYERS CHOOSE THEIR CHARACTER
 fighterConan.addEventListener("click", function(){
     if(playerOne.checked === true){
