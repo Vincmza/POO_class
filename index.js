@@ -38,16 +38,16 @@ let robin = new Fighter("robin", "Robin des bois", 35, 85, 25, 75, 120);
 
 let characters = [merlin, conan, robin]
 
-//MENU WHERE ALL CHARACTERS ARE DISPLAYED
+//---------MENU WHERE ALL CHARACTERS ARE DISPLAYED
 const chooseMenu = document.querySelector(".choose_menu");
 //---------ARRAY TO STORE PLAYER AND CHARACTER
 let choosenFighters = [];
 //---------FUNCTION TO DISPLAY ALL AVAILABLE CHARACTERS
 function displayFighters() {
-    const mesCouilles = choosenFighters.map(elem=> elem.character)
+    const unChoosenCharacters = choosenFighters.map(elem=> elem.character)
     let str = ""
     characters.forEach(perso=>{
-        if(!mesCouilles.includes(perso.id)){
+        if(!unChoosenCharacters.includes(perso.id)){
             str += `<div class="fighter">
             <div id="${perso.id}">
                 <span class="name">${perso.name}</span>
