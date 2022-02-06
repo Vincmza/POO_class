@@ -147,15 +147,30 @@ function chooseCharacter(id, fighter, player) {
 	anyPlayer.innerHTML = displayChoosenFighter(fighter, player);
 
 	const physicalAttackBtn = document.getElementById(getPhysicalStrikeId(player))
+
 	physicalAttackBtn.addEventListener("click", function (){
+
 		const opponent = choosenFighters.filter(elem=>elem.character != fighter.id)
 		const enemy = characters.filter(elem => elem.id == opponent[0].character)[0]
-		console.log(fighter.hit("physical", enemy))
+		const who = opponent[0].player === "Joueur 1" ? "player_one" : "player_two"
+		const arenaId = who === "player_one" ? "arena_1" : "arena_2"
+		fighter.hit("physical", enemy)
+		chooseCharacter(arenaId,enemy,who)
+		enemy.displayDeath()
 	})
 
 	const magicalAttackBtn = document.getElementById(getMagicalStrikeId(player))
+
 	magicalAttackBtn.addEventListener("click", function (){
-		return console.log("mes couilles en ski" + getMagicalStrikeId(player))
+
+		const opponent = choosenFighters.filter(elem=>elem.character != fighter.id)
+		const enemy = characters.filter(elem => elem.id == opponent[0].character)[0]
+		const who = opponent[0].player === "Joueur 1" ? "player_one" : "player_two"
+		const arenaId = who === "player_one" ? "arena_1" : "arena_2"
+		fighter.hit("magical", enemy)
+		chooseCharacter(arenaId,enemy,who)
+		enemy.displayDeath()
+		
 	})
 }
 
