@@ -14,9 +14,10 @@ body{
     display: flex;
     justify-content: space-around;
     box-shadow: 2px 2px 5px black;
+    width:100%;
 }
 .fighter{
-    width:200px;
+    width:20%;
     /* border:1px solid blue; */
     display: flex;
     flex-direction: column;
@@ -151,4 +152,25 @@ img{
     color:white;
     margin-top: 20px;
 }
-
+.delete_button_container{
+    padding: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    /* border:1px solid green; */
+    display: flex;
+    justify-content: center;
+}
+#delete{
+    font-size: 1.2em;
+    padding:10px 20px;
+    background-color:rgb(235, 202, 180);
+    border-radius:5px;
+    border:none;
+    cursor:pointer;
+    box-shadow: 2px 2px 3px black;
+    transform:scale(1);
+    transition:500ms;
+}
+#delete:hover{
+    transform:scale(1.2);
+}

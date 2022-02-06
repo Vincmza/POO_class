@@ -35,9 +35,8 @@ class Fighter {
 let merlin = new Fighter("merlin", "Merlin", 10, 30, 50, 100, 150);
 let conan = new Fighter("conan", "Conan", 50, 100, 10, 50, 100);
 let robin = new Fighter("robin", "Robin des bois", 35, 85, 25, 75, 120);
-
+//ALL CLASS PUT AWAY IN AN ARRAY
 let characters = [merlin, conan, robin]
-
 //---------MENU WHERE ALL CHARACTERS ARE DISPLAYED
 const chooseMenu = document.querySelector(".choose_menu");
 //---------ARRAY TO STORE PLAYER AND CHARACTER
@@ -87,7 +86,8 @@ displayFighters();
 //---------RADIO BUTTONS ALLOWING USER TO CONFIRM CHARACTER CHOICE
 const playerOne = document.getElementById("first_player_choose");
 const playerTwo = document.getElementById("second_player_choose");
-
+//BUTTON TO DELETE CHOOSEN CHARACTERS AND COME BACK TO CHOOSE MENU
+const deleteButton = document.getElementById("delete")
 //---------FUNCTION TO STORE PLAYER AND CHARACTER
 function storePlayerAndFighter(whichPlayer, fighterId) {
 	const index = choosenFighters.findIndex((elem) => elem.player === whichPlayer);
@@ -142,6 +142,17 @@ function chooseCharacter(id, fighter, player) {
 	//I CALL THE FUNCTION THAT SETS THE CHARACTER CODE BASE
 	anyPlayer.innerHTML = displayChoosenFighter(fighter, player);
 }
-
-
+//FUNCTION TO DELETE CHOOSEN CHARACTERS
+function deleteChoosenFighters(){
+	let arena1 = document.getElementById("arena_1")
+	let arena2 = document.getElementById("arena_2")
+	choosenFighters = []
+	arena1.innerHTML="";
+	arena2.innerHTML="";
+}
+//I LISTEN TO THE DELETE CHOOSEN CHARACTERS BUTTON
+deleteButton.addEventListener("click", function () {
+	deleteChoosenFighters()
+	displayFighters()
+})
 
