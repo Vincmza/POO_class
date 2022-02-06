@@ -1,6 +1,6 @@
 class Fighter {
 	constructor(id, name, attack, defense, magicAttack, magicDefense, health) {
-		(this.id = id),
+			(this.id = id),
 			(this.name = name || "Unknown fighter"),
 			(this.attack = attack),
 			(this.defense = defense),
@@ -97,33 +97,37 @@ function storePlayerAndFighter(whichPlayer, fighterId) {
 		choosenFighters[index].character = fighterId;
 	}
 }
+function getPhysicalStrikeId(player){
+	return player === "player_one" ? "physical_strike_p1" : "physical_strike_p2";
+}
+function getMagicalStrikeId(player){
+	return player === "player_one" ? "magical_strike_p1" : "magical_strike_p2";
+}
 //---------FUNCTION TO DISPLAY CHARACTER USER CHOSE
 function displayChoosenFighter(fighter, player) {
 	const whichOne = player === "player_one" ? "Joueur 1" : "Joueur 2";
-	const idPhysicalStrike = player === "player_one" ? "physical_strike_p1" : "physical_strike_p2";
-	const idMagicalStrike = player === "player_one" ? "magical_strike_p1" : "magical_strike_p2";
 	storePlayerAndFighter(whichOne, fighter.id);
 	return `<div class="fighter">
-    <span id="which_player">${whichOne}</span>
-    <div id="${fighter.id}">
-        <span class="name">${fighter.name}</span>
-        <div class="img_container">
-            <img src="./images/${fighter.id}.jpg" alt="photo conan">
-        </div>
-        <div class="specifications">
-            <div class="spe"><span>Attack</span><span>${fighter.attack}</span></div>
-            <div class="spe"><span>Defense</span><span>${fighter.defense}</span></div>
-            <div class="spe"><span>Magical Attack</span><span>${fighter.magicAttack}</span></div>
-            <div class="spe"><span>Magical Defense</span><span>${fighter.magicDefense}</span></div>
-            <div class="spe"><span>Health</span><span>${fighter.health}</span></div>
-        </div>
-    </div>
-    <div class="strike_buttons">
-        <input id=${idPhysicalStrike} class="ps_button" type="button" value="Attaque physique"/>
-        <input id=${idMagicalStrike} class="ms_button" type="button" value="Attaque magique"/>
-    </div>
-</div>`;
-}
+		<span id="which_player">${whichOne}</span>
+		<div id="${fighter.id}">
+			<span class="name">${fighter.name}</span>
+			<div class="img_container">
+				<img src="./images/${fighter.id}.jpg" alt="photo conan">
+			</div>
+			<div class="specifications">
+				<div class="spe"><span>Attack</span><span>${fighter.attack}</span></div>
+				<div class="spe"><span>Defense</span><span>${fighter.defense}</span></div>
+				<div class="spe"><span>Magical Attack</span><span>${fighter.magicAttack}</span></div>
+				<div class="spe"><span>Magical Defense</span><span>${fighter.magicDefense}</span></div>
+				<div class="spe"><span>Health</span><span>${fighter.health}</span></div>
+			</div>
+		</div>
+		<div class="strike_buttons">
+			<input id=${getPhysicalStrikeId(player)} class="ps_button" type="button" value="Attaque physique"/>
+			<input id=${getMagicalStrikeId(player)} class="ms_button" type="button" value="Attaque magique"/>
+		</div>
+	</div>`	
+};
 //---------FUNCTION TO BUILD CODE BASE WHERE CHOOSEN CHARACTER SETS IN
 function chooseCharacter(id, fighter, player) {
 	//THE TARGET IS THE ID ALREADY SET IN HTML
@@ -141,7 +145,20 @@ function chooseCharacter(id, fighter, player) {
 	const anyPlayer = document.getElementById(`${player}`);
 	//I CALL THE FUNCTION THAT SETS THE CHARACTER CODE BASE
 	anyPlayer.innerHTML = displayChoosenFighter(fighter, player);
+
+	const physicalAttackBtn = document.getElementById(getPhysicalStrikeId(player))
+	physicalAttackBtn.addEventListener("click", function (){
+		const opponent = choosenFighters.filter(elem=>elem.character != fighter.id)
+		const enemy = characters.filter(elem => elem.id == opponent[0].character)[0]
+		console.log(fighter.hit("physical", enemy))
+	})
+
+	const magicalAttackBtn = document.getElementById(getMagicalStrikeId(player))
+	magicalAttackBtn.addEventListener("click", function (){
+		return console.log("mes couilles en ski" + getMagicalStrikeId(player))
+	})
 }
+
 //FUNCTION TO DELETE CHOOSEN CHARACTERS
 function deleteChoosenFighters(){
 	let arena1 = document.getElementById("arena_1")
