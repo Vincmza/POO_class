@@ -14,17 +14,30 @@ class Fighter {
 	displayDeath() {
 		this.isDead() ? console.log(`${this.name} est mort au combat`) : "";
 	}
+    defenseScore (aggressor){
+        if(aggressor.defense < 0) {aggressor.defense = 0}
+        if(aggressor.magicDefense < 0) {aggressor.magicDefense = 0}
+        if(aggressor.health < 0){aggressor.health = 0}
+    }
 	//ATTACK
 	hit(type, aggressor) {
 		if (this.health > 0) {
 			if (type === "physical") {
-				return aggressor.defense > 0
-					? (aggressor.defense -= this.attack)
-					: (aggressor.health -= this.attack);
+                if(aggressor.defense > 0){
+                    aggressor.defense -= this.attack
+                    this.defenseScore(aggressor)
+                } else if (aggressor.defense <= 0){
+                    aggressor.health -= this.attack
+                    this.defenseScore(aggressor)
+                }
 			} else if (type === "magical") {
-				return aggressor.magicDefense > 0
-					? (aggressor.magicDefense -= this.magicAttack)
-					: (aggressor.health -= this.magicAttack);
+				if(aggressor.magicDefense > 0){
+                    aggressor.magicDefense -= this.magicAttack
+                    this.defenseScore(aggressor)
+                } else if (aggressor.magicDefense <= 0){
+                    aggressor.health -= this.magicAttack
+                    this.defenseScore(aggressor)
+                }
 			}
 		} else {
 			this.displayDeath;

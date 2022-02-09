@@ -28,7 +28,7 @@ function getMagicalStrikeId(player){
 }
 //---------FUNCTION TO BUILD CODE BASE WHERE CHOOSEN CHARACTER SETS IN
 function chooseCharacter(id, fighter, player) {
-    console.log("clé de l'instance = ",fighter.id, "tableau perso choisi = ",choosenFighters)
+    
 	//THE TARGET IS THE ID ALREADY SET IN HTML
 	const arena = document.getElementById(id);
 	arena.innerHTML = "";
