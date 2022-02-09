@@ -12,7 +12,8 @@ class Fighter {
 		return this.health <= 0;
 	}
 	displayDeath() {
-		this.isDead() ? console.log(`${this.name} est mort au combat`) : "";
+        const death = document.querySelector(".death")
+		this.isDead() ? death.innerHTML=`<i class="fas fa-skull-crossbones"></i><span class="fighterDead">${this.name} est mort au combat </span><i class="fas fa-skull-crossbones"></i>` : "";
 	}
     defenseScore (aggressor){
         if(aggressor.defense < 0) {aggressor.defense = 0}

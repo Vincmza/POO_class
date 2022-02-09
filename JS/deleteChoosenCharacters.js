@@ -15,8 +15,10 @@ deleteButton.addEventListener("click", function () {
 function deleteChoosenFighters(){
 	let arena1 = document.getElementById("arena_1")
 	let arena2 = document.getElementById("arena_2")
+	const death = document.querySelector(".death")
 	choosenFighters = []
 	arena1.innerHTML="";
 	arena2.innerHTML="";
+	death.innerHTML ="";
 }
 export default deleteChoosenFighters

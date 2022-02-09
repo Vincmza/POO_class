@@ -129,6 +129,23 @@ img{
     border-radius:5px;
     font-weight: bold;
 }
+.isDead{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid black; */
+    margin-top:50px;
+}
+.fighterDead{
+    padding: 0px 15px;
+    font-size: 1.8em;
+    text-shadow: 1px 1px 1px black;
+    color:red;
+}
+.death > i {
+    font-size:1.3em;
+    color:black;
+}
 .strike_buttons{
     width:100%;
     /* border:1px solid green; */
