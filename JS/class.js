@@ -1,15 +1,24 @@
+import {choosenFighters} from "./index.js"
 class Fighter {
-	constructor(id, name, attack, defense, magicAttack, magicDefense, health) {
+	constructor(id, name, attack, defense, maxDefense, magicAttack, magicDefense, maxMagicDefense, health, fullHealth) {
 			(this.id = id),
 			(this.name = name || "Unknown fighter"),
 			(this.attack = attack),
 			(this.defense = defense),
+			(this.maxDefense = maxDefense),
 			(this.magicAttack = magicAttack || 0),
 			(this.magicDefense = magicDefense || 0),
-			(this.health = health);
+			(this.maxMagicDefense = maxMagicDefense),
+			(this.health = health),
+			(this.fullHealth = fullHealth);
 	}
 	isDead() {
 		return this.health <= 0;
+	}
+	displayVictory(){
+		const whoWins = document.querySelector(".victory")
+		const whoHasSurvived = choosenFighters.filter(item => item.character !== this.id)
+		this.isDead() ? whoWins.innerHTML = `<i class="fas fa-khanda"></i> ${whoHasSurvived[0].character.toUpperCase()} est victorieux ! <i class="fas fa-khanda"></i>`: ""
 	}
 	displayDeath() {
         const death = document.querySelector(".death")
@@ -44,5 +53,16 @@ class Fighter {
 			this.displayDeath;
 		}
 	}
+	heal(){
+		this.health = this.fullHealth;
+		this.defense = this.maxDefense;
+		this.magicDefense = this.maxMagicDefense;
+	}
+	getPotion(id){
+		if(id === "robin") return this.health += (this.fullHealth/100)*50
+		if(id === "merlin") return this.health += (this.fullHealth/100)*30
+		if(id === "conan") return this.health += (this.fullHealth/100)*15
+	}
+	
 }
 export default Fighter

@@ -129,12 +129,23 @@ img{
     border-radius:5px;
     font-weight: bold;
 }
-.isDead{
+.isDead, .isVictorious{
     width:100%;
     display: flex;
     justify-content: center;
     /* border: 1px solid black; */
     margin-top:50px;
+}
+.victory {
+    font-size: 1.8em;
+    color:rgb(5, 83, 5);
+    text-shadow: 1px 1px 1px black;
+    /* border:1px solid blue; */
+}
+.victory > i {
+    font-size:1em;
+    color:black;
+    padding:0px 20px;
 }
 .fighterDead{
     padding: 0px 15px;
@@ -146,12 +157,14 @@ img{
     font-size:1.3em;
     color:black;
 }
+
 .strike_buttons{
     width:100%;
     /* border:1px solid green; */
     padding:20px 0px;;
     display: flex;
     flex-direction: column;
+    margin-top:10px;
 }
 .ps_button, .ms_button{
     padding:10px 15px;
@@ -159,6 +172,7 @@ img{
     border-radius:10px;
     cursor:pointer;
     box-shadow: 2px 2px 3px black;
+    margin-bottom:20px;
 }
 .ps_button{
     background-color: rgb(201, 30, 30);
@@ -169,6 +183,19 @@ img{
     color:white;
     margin-top: 20px;
 }
+.heal_button{
+    width:100%;
+    /* border:1px solid green; */
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    color: rgb(34, 165, 34);
+}
+.heal_button > i {
+    text-shadow: 1px 1px 1px black;
+    cursor:pointer;
+}
+
 .delete_button_container{
     padding: 30px;
     margin-bottom: 30px;
