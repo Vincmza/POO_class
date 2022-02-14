@@ -214,10 +214,11 @@ function deleteChoosenFighters(){
 	const victory = document.querySelector(".victory")
 
 	for(let i = 0; i<characters.length; i++){
-		let fdp = characters[i].id
+
+		let fighterId = characters[i].id
 		for(let j = 0; j<choosenFighters.length; j++){
-			let mesK = choosenFighters[j].character
-			if(fdp === mesK){
+			let fighterName = choosenFighters[j].character
+			if(fighterId === fighterName){
 				characters[i].heal()
 			}
 		}
@@ -227,5 +228,7 @@ function deleteChoosenFighters(){
 	arena2.innerHTML="";
 	death.innerHTML ="";
 	victory.innerHTML = "";
+	potionP1 = true;
+	potionP2 = true;
 }
 

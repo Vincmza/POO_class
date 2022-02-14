@@ -32,15 +32,6 @@ body{
     padding:20px;
     font-size: 1.3em;
 }
-#robin{
-    background-color: #c7f0d2;
-}
-#merlin{
-    background-color: #c7ecf0;
-}
-#conan{
-    background-color: #f0cac7;
-}
 .name{
     text-align: center;
     margin-bottom: 20px;
@@ -55,6 +46,8 @@ body{
     padding:20px;
     box-shadow: 2px 2px 5px black;
     border-radius: 10px;
+    background-color : hsl(137, 81%, 8%);
+    color:rgb(243, 247, 199);
 } 
 .img_container{
     width:100%;
@@ -133,8 +126,9 @@ input[type=radio] {
     margin-bottom: 15px;
 }
 .choice > span {
-    background-color:rgb(235, 202, 180);
-    padding: 10px 20px;
+    background-color:rgb(54, 34, 21);
+    color:rgb(243, 247, 199);
+    padding: 10px 25px;
     border-radius: 10px;
 }
 .choice > span, label {
@@ -142,7 +136,9 @@ input[type=radio] {
 }
 .choice > label {
     padding:10px;
-    background-color:rgb(235, 202, 180);
+    /* background-color:rgb(235, 202, 180); */
+    background-color: rgb(54, 34, 21);
+    color:rgb(243, 247, 199);
     border-radius:5px;
     font-weight: bold;
 }
@@ -198,11 +194,11 @@ input[type=radio] {
     margin-bottom:20px;
 }
 .ps_button{
-    background-color: rgb(201, 30, 30);
+    background-color: rgb(94, 7, 7);
     color:white;
 }
 .ms_button{
-    background-color: rgb(30, 70, 201);
+    background-color: rgb(9, 29, 95);
     color:white;
     margin-top: 20px;
 }
@@ -211,8 +207,8 @@ input[type=radio] {
     /* border:1px solid green; */
     display: flex;
     justify-content: center;
-    font-size: 2em;
-    color: rgb(34, 165, 34);
+    font-size: 2.2em;
+    color: rgb(24, 131, 24);
 }
 .heal_button > i {
     text-shadow: 1px 1px 1px black;

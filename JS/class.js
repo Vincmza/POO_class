@@ -59,9 +59,9 @@ class Fighter {
 		this.magicDefense = this.maxMagicDefense;
 	}
 	getPotion(id){
-		if(id === "robin") return this.health += (this.fullHealth/100)*70
-		if(id === "merlin") return this.health += (this.fullHealth/100)*30
-		if(id === "conan") return this.health += (this.fullHealth/100)*15
+		if(id === "robin") return this.health += Math.round((this.fullHealth/100)*70)
+		if(id === "merlin") return this.health += Math.round((this.fullHealth/100)*15)
+		if(id === "conan") return this.health += Math.round((this.fullHealth/100)*25)
 	}
 	
 }
