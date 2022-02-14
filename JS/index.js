@@ -1,9 +1,9 @@
 import Fighter from "./class.js"
 
 //---------3 DIFFERENT CHARACTERS FROM THE FIGHTER CLASS
-let merlin = new Fighter("merlin", "Merlin", 20, 60, 60, 100, 200, 200, 300, 300);
+let merlin = new Fighter("merlin", "Merlin", 20, 60, 60, 100, 200, 200, 275, 275);
 let conan = new Fighter("conan", "Conan", 100, 200, 200, 20, 100, 100, 200, 200);
-let robin = new Fighter("robin", "Robin des bois", 70, 170, 170, 50, 150, 150, 240, 240);
+let robin = new Fighter("robin", "Robin des bois", 75, 170, 170, 60, 150, 150, 240, 240);
 
 //---------ALL CLASS PUT AWAY IN AN ARRAY
 let characters = [merlin, conan, robin]
@@ -176,7 +176,7 @@ const whichPlayerToHeal = (player)=>{
 function displayChoosenFighter(fighter, player) {
 	const whichOne = player === "player_one" ? "Joueur 1" : "Joueur 2";
 	storePlayerAndFighter(whichOne, fighter.id);
-	return `<div class="fighter">
+	return `<div class="fighter fighterInArena">
 		<span id="which_player">${whichOne}</span>
 		<div id="${fighter.id}">
 			<span class="name">${fighter.name}</span>
@@ -211,6 +211,7 @@ function deleteChoosenFighters(){
 	let arena1 = document.getElementById("arena_1")
 	let arena2 = document.getElementById("arena_2")
 	const death = document.querySelector(".death")
+	const victory = document.querySelector(".victory")
 
 	for(let i = 0; i<characters.length; i++){
 		let fdp = characters[i].id
@@ -225,5 +226,6 @@ function deleteChoosenFighters(){
 	arena1.innerHTML="";
 	arena2.innerHTML="";
 	death.innerHTML ="";
+	victory.innerHTML = "";
 }
 

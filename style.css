@@ -1,19 +1,21 @@
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
 body{
-    width:1440px;
+    width:80%;
     margin:auto;
+    background-image: url("./images/landscape-g1001c4be6_1920.jpg");
 }
 .choose_menu{
-    border:1px solid rgb(75, 7, 7);
+    /* border:1px solid rgb(75, 7, 7); */
     border-radius: 10px;
-    background-color: #f3f5ce;
+    /* background-color: #f3f5ce; */
+    background-color: transparent;
     padding:30px;
     margin-top: 50px;
     padding:50px;
     display: flex;
     justify-content: space-around;
-    box-shadow: 2px 2px 5px black;
+    /* box-shadow: 2px 2px 5px black; */
     width:100%;
 }
 .fighter{
@@ -42,7 +44,8 @@ body{
 .name{
     text-align: center;
     margin-bottom: 20px;
-    font-size: 1.15em;
+    font-size: 1.6em;
+    font-family: 'MedievalSharp', Arial, Helvetica, sans-serif;
 }
 #conan, #merlin, #robin{
     /* border:1px solid yellow; */
@@ -79,10 +82,11 @@ img{
     width:100%;
     display: flex;
     border:1px solid rgb(75, 7, 7);
-    background-color: #efedf2;
+    /* background-color: #efedf2; */
     border-radius:10px;
     margin-bottom:50px;
     margin-top:50px;
+    background-image: url("./images/castle-g681c0714a_1920.jpg");
 }
 #arena_1, #arena_2{
     display: flex;
@@ -105,20 +109,33 @@ img{
     /* border: 1px solid red; */
     margin-top: 50px;
 }
+input[type=radio] {
+    border: 0px;
+    width: 100%;
+    height: 1.8em;
+}
 .choice{
+    color: black;
+    font-weight: bold;
     display: flex;
     flex-direction: column;
-    border:1px solid rgb(75, 7, 7);
-    background-color: #f4f5c9;
+    /* border:1px solid rgb(75, 7, 7); */
+    /* background-color: #f4f5c9; */
+    background-color: transparent;
     border-radius:5px;
     align-items: center;
     padding: 10px 15px;
-    box-shadow: 2px 2px 3px black;
+    /* box-shadow: 2px 2px 3px black; */
 }
 .choice > input {
     cursor:pointer;
     margin-top: 15px;
     margin-bottom: 15px;
+}
+.choice > span {
+    background-color:rgb(235, 202, 180);
+    padding: 10px 20px;
+    border-radius: 10px;
 }
 .choice > span, label {
     font-size: 1.3em;
@@ -138,24 +155,30 @@ img{
 }
 .victory {
     font-size: 1.8em;
-    color:rgb(5, 83, 5);
+    color:rgb(20, 221, 20);
     text-shadow: 1px 1px 1px black;
+    font-weight:bold;
     /* border:1px solid blue; */
 }
 .victory > i {
     font-size:1em;
-    color:black;
+    color:rgb(20, 221, 20);
     padding:0px 20px;
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
 }
 .fighterDead{
     padding: 0px 15px;
     font-size: 1.8em;
     text-shadow: 1px 1px 1px black;
     color:red;
+    font-weight: bold;
 }
 .death > i {
     font-size:1.3em;
-    color:black;
+    color:red;
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
 }
 
 .strike_buttons{
@@ -217,4 +240,81 @@ img{
 }
 #delete:hover{
     transform:scale(1.2);
+}
+@media screen and (max-width: 1250px){
+    body {
+        width:90%;
+    }
+}
+@media screen and (max-width:1080px){
+    .choice{
+        width:40%;
+        text-align: center;
+    }
+    .choose_buttons{
+        justify-content: space-between;
+    }
+}
+@media screen and (max-width:900px) {
+    body{
+        width:95%;
+    }
+    .choose_menu{
+        padding: 15px;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width:726px) {
+    .fighter{
+        margin-top:30px;
+    }
+    .choose_menu{
+        padding-bottom:45px;
+    }
+    .spe{
+        font-weight:bold;
+    }
+}
+@media screen and (max-width:550px) {
+    .choose_buttons{
+        flex-direction: column;
+        align-items: center;
+    }
+    .choice:nth-child(1){
+        margin-bottom:30px;
+    }
+    .choice{
+        width:100%;
+    }
+}
+@media screen and (max-width:500px){
+    .fighter{
+        width:250px;
+    }
+    .choose_buttons{
+        padding-bottom:unset;
+    }
+    .arena_container{
+        flex-direction: column;
+        align-items: center;
+    }
+    #arena_1, #arena_2{
+        width:100%;
+    }
+    .fighterInArena{
+        display: flex;
+        width:75%;
+    }
+    .fighterDead, .victory{
+        font-size: 1.3em;
+    }
+}
+@media screen and (max-width:400px) {
+    .fighterDead, .victory{
+        font-size: 1em;
+    }
+    .fighterInArena{
+        display: flex;
+        width:90%;
+    }
 }
