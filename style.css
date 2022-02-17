@@ -133,6 +133,7 @@ input[type=radio] {
 }
 .choice > span, label {
     font-size: 1.3em;
+    text-align: center;
 }
 .choice > label {
     padding:10px;
@@ -258,17 +259,25 @@ input[type=radio] {
     .choose_menu{
         padding: 15px;
         flex-wrap: wrap;
+        align-items: stretch;
     }
 }
 @media screen and (max-width:726px) {
     .fighter{
-        margin-top:30px;
+        margin-top:15px;
+    }
+    .fighterInArena{
+        margin-top:0px;
     }
     .choose_menu{
         padding-bottom:45px;
     }
     .spe{
         font-weight:bold;
+    }
+    .choice{
+        width:60%;
+        font-size: 0.9em;
     }
 }
 @media screen and (max-width:550px) {
@@ -282,6 +291,10 @@ input[type=radio] {
     .choice{
         width:100%;
     }
+    #robin > .name{
+        text-align: center;
+        font-size: 1.3em;
+    }
 }
 @media screen and (max-width:500px){
     .fighter{
@@ -292,17 +305,54 @@ input[type=radio] {
     }
     .arena_container{
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
     #arena_1, #arena_2{
         width:100%;
+        padding:5px;
+        height:500px;
     }
     .fighterInArena{
         display: flex;
-        width:75%;
+        width:100%;
     }
     .fighterDead, .victory{
         font-size: 1.3em;
+    }
+    .fighter_responsive_design{
+        display:flex;
+        justify-content: space-between;
+    }
+    .responsive_img{
+        width:40%;
+    }
+    .responsive_stats{
+        width:60%;
+        padding-left: 15px;
+    }
+    .attack_and_heal_buttons{
+        width:100%;
+        /* border:1px solid blue; */
+        display: flex;
+        align-items: center;
+    }
+    .strike_buttons{
+        display: flex;
+        width:50%;
+        /* border:1px solid red; */
+        margin-top:0;
+        padding-bottom:0px;
+    }
+    .heal_button{
+        width:50%;
+        font-size:2.5em;
+    }
+    #player_one, #player_two{
+        align-items: flex-start;
+    }
+    #which_player{
+        font-size: 1.5em;
+        font-weight: bold;
     }
 }
 @media screen and (max-width:400px) {
@@ -311,6 +361,13 @@ input[type=radio] {
     }
     .fighterInArena{
         display: flex;
-        width:90%;
+        width:100%;
+    }
+    .spe{
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+    .ps_button, .ms_button{
+        font-size: 0.8em;
     }
 }

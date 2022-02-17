@@ -1,7 +1,7 @@
 import Fighter from "./class.js"
 
 //---------3 DIFFERENT CHARACTERS FROM THE FIGHTER CLASS
-let merlin = new Fighter("merlin", "Merlin", 20, 60, 60, 100, 200, 200, 275, 275);
+let merlin = new Fighter("merlin", "Merlin", 20, 60, 60, 100, 200, 200, 275, 260);
 let conan = new Fighter("conan", "Conan", 100, 200, 200, 20, 100, 100, 200, 200);
 let robin = new Fighter("robin", "Robin des bois", 75, 170, 170, 60, 150, 150, 240, 240);
 
@@ -18,7 +18,7 @@ const chooseMenu = document.querySelector(".choose_menu");
 const playerOne = document.getElementById("first_player_choose");
 const playerTwo = document.getElementById("second_player_choose");
 
-//POTIONS
+//POTIONS TRUE MEANS AVAILABLE
 let potionP1 = true
 let potionP2 = true
 
@@ -178,24 +178,29 @@ function displayChoosenFighter(fighter, player) {
 	storePlayerAndFighter(whichOne, fighter.id);
 	return `<div class="fighter fighterInArena">
 		<span id="which_player">${whichOne}</span>
+
 		<div id="${fighter.id}">
 			<span class="name">${fighter.name}</span>
-			<div class="img_container">
-				<img src="./images/${fighter.id}.jpg" alt="photo conan">
-			</div>
-			<div class="specifications">
-				<div class="spe"><span>Attack</span><span>${fighter.attack}</span></div>
-				<div class="spe"><span>Defense</span><span>${isStatDown(fighter, "defense")}</span></div>
-				<div class="spe"><span>Magical Attack</span><span>${fighter.magicAttack}</span></div>
-				<div class="spe"><span>Magical Defense</span><span>${isStatDown(fighter, "magicDefense")}</span></div>
-				<div class="spe"><span>Health</span><span>${isStatDown(fighter, "health")}</span></div>
+			<div class="fighter_responsive_design">
+				<div class="img_container responsive_img">
+					<img src="./images/${fighter.id}.jpg" alt="photo conan">
+				</div>
+				<div class="specifications responsive_stats">
+					<div class="spe"><span>Attack</span><span>${fighter.attack}</span></div>
+					<div class="spe"><span>Defense</span><span>${isStatDown(fighter, "defense")}</span></div>
+					<div class="spe"><span>Magical Attack</span><span>${fighter.magicAttack}</span></div>
+					<div class="spe"><span>Magical Defense</span><span>${isStatDown(fighter, "magicDefense")}</span></div>
+					<div class="spe"><span>Health</span><span>${isStatDown(fighter, "health")}</span></div>
+				</div>
 			</div>
 		</div>
-		<div class="strike_buttons">
-			<input id=${getPhysicalStrikeId(player)} class="ps_button" type="button" value="Attaque physique"/>
-			<input id=${getMagicalStrikeId(player)} class="ms_button" type="button" value="Attaque magique"/>
+		<div class="attack_and_heal_buttons">
+			<div class="strike_buttons">
+				<input id=${getPhysicalStrikeId(player)} class="ps_button" type="button" value="Attaque physique"/>
+				<input id=${getMagicalStrikeId(player)} class="ms_button" type="button" value="Attaque magique"/>
+			</div>
+			${displayPotionContainer(player,fighter)}
 		</div>
-		${displayPotionContainer(player,fighter)}
 	</div>`	
 };
 
