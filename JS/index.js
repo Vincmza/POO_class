@@ -1,7 +1,7 @@
 import Fighter from "./class.js"
 
 //---------3 DIFFERENT CHARACTERS FROM THE FIGHTER CLASS
-let merlin = new Fighter("merlin", "Merlin", 20, 60, 60, 100, 200, 200, 275, 260);
+let merlin = new Fighter("merlin", "Merlin", 20, 60, 60, 100, 200, 200, 260, 260);
 let conan = new Fighter("conan", "Conan", 100, 200, 200, 20, 100, 100, 200, 200);
 let robin = new Fighter("robin", "Robin des bois", 75, 170, 170, 60, 150, 150, 240, 240);
 
